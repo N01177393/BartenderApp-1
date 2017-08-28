@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations; 
 
 namespace BartenderApp.Models
 {
@@ -11,8 +12,11 @@ namespace BartenderApp.Models
         //Properties of a drink
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int DrinkID { get; set; }
+        [Display(Name = "Poison")]
         public string DrinkName { get; set; }
+        [Display(Name = "Oh Tell Me More...")]
         public string DrinkDescription { get; set; }
+        [Display(Name = "Pay What?")]
         public int DrinkPrice { get; set; }
     }
 }

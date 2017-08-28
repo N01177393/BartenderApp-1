@@ -192,6 +192,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Bartender\Home.cshtml" />
     <Content Include="Views\Bartender\Menu.cshtml" />
+    <Content Include="Views\Bartender\Details.cshtml" />
+    <Content Include="Views\Bartender\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
