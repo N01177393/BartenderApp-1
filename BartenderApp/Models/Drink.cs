@@ -14,7 +14,7 @@ namespace BartenderApp.Models
         public int DrinkID { get; set; }
         [Display(Name = "Poison")]
         public string DrinkName { get; set; }
-        [Display(Name = "Oh Tell Me More...")]
+        [Display(Name = "Oh I Like This...")]
         public string DrinkDescription { get; set; }
         [Display(Name = "Pay What?")]
         public int DrinkPrice { get; set; }
