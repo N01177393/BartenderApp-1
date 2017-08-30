@@ -13,6 +13,7 @@ namespace BartenderApp.Controllers
     public class BartenderController : Controller
     {
         private DrinkDbContext db = new DrinkDbContext();
+        Queue<Drink> OrderQueue = new Queue<Drink>();
 
         //Homepage
         public ActionResult Home()
@@ -41,44 +42,18 @@ namespace BartenderApp.Controllers
             return View(drink);
         }
 
-        // GET: Bartender/Edit/5
-        public ActionResult Edit(int? id)
+        //Add drink order to queue
+        public ActionResult Thanks(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
             Drink drink = db.Drinks.Find(id);
-            if (drink == null)
-            {
-                return HttpNotFound();
-            }
-            return View(drink);
+            OrderQueue.Enqueue(drink);
+            return View();
         }
 
-        // POST: Bartender/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DrinkID,DrinkName,DrinkDescription,DrinkPrice")] Drink drink)
+        //View order queue
+        public ActionResult Orders()
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(drink).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(drink);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            return View(OrderQueue);
         }
     }
 }

@@ -12,6 +12,12 @@ namespace BartenderApp.Models
             //Create instance of drinks
             DrinkDbContext Context = new DrinkDbContext();
 
+            //If there are drinks already, do not recreate them
+            if (Context.Drinks.Any())
+            {
+                return;
+            }
+
             //Add drinks to the menu
             var drinks = new Drink[]
             {
@@ -51,6 +57,7 @@ namespace BartenderApp.Models
                 Context.Drinks.Add(d);
             }
    
+            //Save added changes
             Context.SaveChanges();
         }
     }

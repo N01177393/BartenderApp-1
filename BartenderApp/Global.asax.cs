@@ -17,7 +17,7 @@ namespace BartenderApp
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
-            //DrinkDbInitializer.Initialize();
+            DrinkDbInitializer.Initialize();
         }
     }
 }

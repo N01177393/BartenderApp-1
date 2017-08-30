@@ -193,7 +193,8 @@
     <Content Include="Views\Bartender\Home.cshtml" />
     <Content Include="Views\Bartender\Menu.cshtml" />
     <Content Include="Views\Bartender\Details.cshtml" />
-    <Content Include="Views\Bartender\Edit.cshtml" />
+    <Content Include="Views\Bartender\Orders.cshtml" />
+    <Content Include="Views\Bartender\Thanks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
