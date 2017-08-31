@@ -193,11 +193,12 @@
     <Content Include="Views\Bartender\Home.cshtml" />
     <Content Include="Views\Bartender\Menu.cshtml" />
     <Content Include="Views\Bartender\Details.cshtml" />
-    <Content Include="Views\Bartender\Orders.cshtml" />
+    <Content Include="Views\Bartender\DrinkQueue.cshtml" />
     <Content Include="Views\Bartender\Thanks.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

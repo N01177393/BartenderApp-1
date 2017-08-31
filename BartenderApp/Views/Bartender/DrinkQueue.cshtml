@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<BartenderApp.Models.Drink>
 
 @{
-    ViewBag.Title = "Orders";
+    ViewBag.Title = "DrinkQueue";
     Page.Title = "Conjure Poison";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -11,9 +11,11 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.DrinkName)
+            <label>Poison to Prepare</label>
         </th>
-        <th></th>
+        <th>
+            <label>Ready or Not, Here They Come</label>
+        </th>
     </tr>
 
 @foreach (var item in Model) {
@@ -22,7 +24,7 @@
             @Html.DisplayFor(modelItem => item.DrinkName)
         </td>
         <td>
-            @Html.ActionLink("Delete", "Delete", new { id=item.DrinkID })
+            @Html.ActionLink("I'm Waiting... PICK ME UP", "Remove")
         </td>
     </tr>
 }

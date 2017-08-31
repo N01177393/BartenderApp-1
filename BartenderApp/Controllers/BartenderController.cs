@@ -13,7 +13,7 @@ namespace BartenderApp.Controllers
     public class BartenderController : Controller
     {
         private DrinkDbContext db = new DrinkDbContext();
-        Queue<Drink> OrderQueue = new Queue<Drink>();
+        public static Queue<Drink> OrderQueue = new Queue<Drink>();
 
         //Homepage
         public ActionResult Home()
@@ -45,15 +45,23 @@ namespace BartenderApp.Controllers
         //Add drink order to queue
         public ActionResult Thanks(int? id)
         {
+            //Add drink to queue
             Drink drink = db.Drinks.Find(id);
             OrderQueue.Enqueue(drink);
             return View();
         }
 
         //View order queue
-        public ActionResult Orders()
+        public ActionResult DrinkQueue()
         {
             return View(OrderQueue);
+        }
+
+        //Set order for server pick up and remove from queue 
+        public ActionResult Remove()
+        {
+            OrderQueue.Dequeue();
+            return RedirectToAction("DrinkQueue");
         }
     }
 }
